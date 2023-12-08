@@ -8,7 +8,6 @@ import gsap from "gsap";
 const Lamp = ({isLampOn,level,color}) => {
     const lampRef = useRef();
     const cameraRef = useRef();
-    const [currentCameraPosition, setCurrentCameraPosition] = useState([0, 3.85, 15]);
   
 
     useEffect(() => {
@@ -22,7 +21,6 @@ const Lamp = ({isLampOn,level,color}) => {
           ease:'linear'
         });
     
-        setCurrentCameraPosition(newCameraPosition);
       }, [isLampOn]);
   
 
@@ -39,24 +37,19 @@ const Lamp = ({isLampOn,level,color}) => {
         </mesh>
 
 
-        {/* Lamp base */}
         <mesh position={[0, -3, 0]} castShadow>
           <cylinderGeometry args={[1, 1, 0.3, 32]} />
-          {/* MeshStandardMaterial for the lamp base */}
-          <meshStandardMaterial color="darkgray" metalness={0.6} roughness={0.2}/>
+          <meshStandardMaterial color="darkgray" metalness={0.4} roughness={0.4}/>
         </mesh>
 
-        {/* Lampshade */}
         <mesh position={[0, 1.15, 0]}  castShadow>
-          {/* SphereGeometry for the lampshade */}
           <sphereGeometry args={[1, 32, 32]} />
-          {/* MeshStandardMaterial for the lampshade */}
           <meshStandardMaterial
           color="#ffffff"
-          emissive={isLampOn ? color : '#000000'} // Set emissive color when light is on or off
-          emissiveIntensity={isLampOn ? 0.07 * level : 0} // Adjust intensity when light is on or off
+          emissive={isLampOn ? color : '#000000'} 
+          emissiveIntensity={isLampOn ? 0.07 * level : 0} 
           metalness={0.6}
-          roughness={0.2}
+          roughness={0.4}
         />
         </mesh>
 
@@ -66,7 +59,7 @@ const Lamp = ({isLampOn,level,color}) => {
 
         <mesh rotation={[-(angleToRadians(90)), 0, 0]} position={[0, -3.3, 0]} receiveShadow>
             <planeGeometry args={[20, 20]} />
-            <meshStandardMaterial color="#ffffff" />
+            <meshStandardMaterial color="#ffffff" metalness={0.4} roughness={0.4}/>
         </mesh>
 
         <Environment background>
@@ -78,8 +71,9 @@ const Lamp = ({isLampOn,level,color}) => {
 
         <ambientLight args={["#ffffff", 0.5]}/>
 
-        {/* Spotlight light */}
-        <spotLight args={["#ffffff", 10, 7, angleToRadians(45), 0.4]} position={[-3, 1, 2]} castShadow />
+        <spotLight args={["#ffffff", 100, 50, angleToRadians(45), 0.2]} position={[-5, 3, 2]} castShadow />
+        <pointLight args={[isLampOn ? color : '#000000', isLampOn ? 30 * level : 0, 10, 2]} position={[0, 2, 0]} castShadow />
+        <pointLight args={[isLampOn ? color : '#000000', isLampOn ? 30 * level : 0, 10, 4]} position={[0,-1.2, 0]} castShadow />
 
     </>
   );
