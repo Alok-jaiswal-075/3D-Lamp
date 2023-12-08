@@ -35,7 +35,7 @@ Check out the live demo [here](https://3-d-lamp.vercel.app).
 
 To get a local copy up and running, follow these simple steps:
 
-1. Clone the repository: \`git clone https://github.com/Alok-jaiswal-075/3D-Lamp`\
+1. Clone the repository: \`git clone https://github.com/Alok-jaiswal-075/3D-Lamp \`
 2. Install dependencies: \`npm install\`
 3. Run the development server: \`npm start\`
 
