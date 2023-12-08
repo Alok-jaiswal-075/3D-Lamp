@@ -2,8 +2,8 @@ import React from "react";
 
 export default function Brightness({ level, handleLevel }) {
   const inputStyles = {
-    width: "15%", 
-    height: "20px", 
+    width: "10rem", 
+    height: "2rem", 
     backgroundColor: "#f0f0f0",
     border: "1px solid #ccc",
     borderRadius: "5px",

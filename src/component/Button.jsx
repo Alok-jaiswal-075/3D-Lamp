@@ -15,7 +15,7 @@ export default function Button({ toggleLamp, lampOn }) {
     position: 'absolute',
     left : '50%',
     transform : 'translateX(-50%)',
-    top:'10%',
+    top:'4%',
     zIndex:'10',
 
   };

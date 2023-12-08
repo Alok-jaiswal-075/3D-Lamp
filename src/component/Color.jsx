@@ -5,13 +5,13 @@ export default function Color({ color, handleColor }) {
 
   const inputStyles = {
     position:"absolute",
-    left:"55%",
+    left:"50%",
     transform:"translateX(-50%)",
-    top:"11%",
+    top:"12%",
     zIndex:"10",
 	border: "0",
-	width: "50px",
-	height: "32px",
+	width: "4rem",
+	height: "2.2rem",
     padding:"0",
     borderRadius:"10px"
   };
